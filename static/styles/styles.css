@@ -1,0 +1,458 @@
+@import url("fonts.css");
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::selection
+{
+    background-color: #b01010;
+    color: #ffffff;
+}
+
+body
+{
+    background-color: #F8F8FA;
+    overflow-x: hidden;
+    font-family: "RedOctoberDefault";
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+header
+{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-areas: 
+        "logo"
+    ;
+    padding: 1rem 5rem;
+    box-shadow: 0 0 5px 5px rgba(177, 16, 16, 0.4);
+    font-family: "RedOctoberDefault";
+    position: sticky;
+    /*position: relative;*/
+    top: 0;  
+    z-index: 100;
+    background-color: #F8F8FA;  
+    
+}
+
+.logo
+{
+    grid-area: logo;
+    cursor: default;
+}
+
+.logo h1
+{   
+    color: #e21818;
+    font-size: 34px;
+}
+
+.logo h1::first-letter
+{
+    font-size: 50px;
+}
+
+.logo h1 sub
+{
+    font-family: "RedOctoberFat";
+    font-size: 18px;
+}
+
+header nav
+{
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 3rem;
+    justify-content: center;
+    align-content: center;
+}
+
+header nav a
+{
+    font-size: 20px;
+    position: relative;
+    text-decoration: none;
+    position: relative;
+    color: #000;
+    transition-duration: .1s;
+    white-space: nowrap;
+}
+
+header nav a .line
+{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -5px;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    opacity: 0;
+    background-color: #e21818;
+}
+
+header nav a::before
+{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background-color: #e21818;
+    left: 0;
+    bottom: -3px;
+    opacity: 0;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+header nav a:hover
+{
+    color: #e21818;
+}
+
+/*header nav a:hover .line
+{
+    opacity: 1;
+    left: 0;
+}*/
+
+header nav a:hover::before
+{
+    left: 0;
+    opacity: 1;
+}
+
+/*Описание первой секции*/
+.first_section
+{
+    margin-top: 4rem;
+    position: relative;
+    display: grid;
+}
+
+/*Описание слайдера*/
+.posters
+{
+    width: 100%;
+    overflow: hidden;
+    justify-self: center;
+    position: relative;
+}
+
+.posters .slider_line
+{
+    width: 3240px;
+    display: grid;
+    grid-auto-flow: column;
+    position: relative;
+    left: 0;
+    transition-duration: .3s;
+}
+
+.posters .slider_line .slider_block
+{
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    width: 1200px;
+}
+
+.posters .poster
+{
+    width: 300px;
+    height: 400px;
+    background-color: #e21818;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.posters .poster h3, p
+{
+    font-family: "RedOctoberFat";
+    color: #fff;
+    font-size: 20px;
+}
+
+.posters .poster h3
+{
+    position: relative;
+}
+
+.posters .poster h3::before
+{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background-color: #fff;
+    bottom: -20px;
+    left: 0;
+}
+
+.posters .poster p
+{
+    margin-top: 5rem;
+    align-self: center;
+    line-height: 35px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.visible_posters
+{
+    display: grid;
+    position: relative;
+    width: 1200px;
+    justify-self: center;
+}
+
+.btn_slider
+{
+    position: absolute;
+    color: #ff5f5f;
+    top: 40%;
+    font-size: 60px;
+    cursor: pointer;
+    transition-duration: .3s;
+    font-style: normal;
+}
+
+.btn_slider:hover
+{
+    color: #a41b1b;
+}
+
+.btn_slider:active
+{
+    text-shadow: 0px 0px 3px #a41b1b;
+}
+
+#btn_left
+{
+    left: -35px;
+}
+
+#btn_right
+{
+    right: -35px;
+}
+
+/*Описание индикаторов слайдера*/
+.indicators_here
+{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 50%;
+    margin-left: -100px;
+    bottom: -65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.indicator
+{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: #ff5f5f;
+    cursor: pointer;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+
+.indicator:not(:first-child)
+{
+    margin-left: 1.4rem;
+}
+
+.indicator:active
+{
+    box-shadow: 0px 0px 3px #a41b1b !important;
+}
+
+.indicator:hover
+{
+    background-color: #a41b1b !important;
+}
+
+/*Описание блока о поэте*/
+.second_section
+{
+    display: grid;
+    margin-top: 9rem;
+}
+
+.biography_and_about
+{
+    display: grid;
+    grid-auto-flow: column;
+    /*grid-template-columns: repeat(2, 50%);*/
+    width: 80%;
+    margin: 0 auto;
+}
+
+.biography_and_about .content_text
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 1rem;
+    background-color: #e21818;
+    border-radius: 2px;
+    padding: 3rem;
+    position: relative;
+}
+
+.biography_and_about .content_text .content_image
+{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: -90px;
+    top: -90px;
+    transform: rotate(20deg);
+}
+
+/*.biography_and_about .content_text .content_image .img_here
+{
+    position: relative;
+    object-fit: cover;
+}*/
+
+.biography_and_about .content_text .content_image .img_here img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.biography_and_about .content_text h2
+{
+    color: #fff;
+    font-size: 30px;
+    cursor: default;
+    justify-self: center;
+    font-style: oblique;
+}
+
+.biography_and_about .content_text h2 b
+{
+    font-size: 35px;
+}
+
+.biography_and_about .content_text h2 em
+{
+    margin-left: 13rem;
+}
+
+.biography_and_about .content_text p
+{
+    color: #fff;
+    text-indent: 1.5rem;
+    text-align: justify;
+    font-family: "RedOctoberDefault";
+}
+
+.biography_and_about .content_text p::first-letter
+{
+    font-size: 30px;
+    margin-right: .3rem;
+}
+
+.biography_and_about .content_text .button_add_to_server
+{
+    justify-self: end;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.biography_and_about .content_text .button_add_to_server .standing .img_here img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.biography_and_about .content_text .button_add_to_server .standing
+{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.biography_and_about .content_text .button_add_to_server .standing_image_false
+{
+    left: -46px;
+    bottom: -32px;
+}
+
+.biography_and_about .content_text .button_add_to_server .standing_image_true
+{
+    right: -46px;
+    bottom: -32px;
+}
+
+.biography_and_about .content_text .button_add_to_server button
+{
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.biography_and_about .content_text .button_add_to_server a
+{
+    width: 100px;
+    height: 50px;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    font-family: "RedOctoberDefault";
+    position: relative;
+    z-index: 100;
+    transition-duration: .2s;
+    transition-timing-function: ease-in;
+}
+
+.biography_and_about .content_text .button_add_to_server a::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #a41b1b;
+    transition-duration: .2s;
+    transition-timing-function: ease-in;
+    z-index: -1;
+}
+
+.biography_and_about .content_text .button_add_to_server a:active
+{
+    box-shadow: 0px 0px 10px 5px #a51c1c;
+}
+
+.biography_and_about .content_text .button_add_to_server a:hover
+{
+    color: #fff;
+}
+
+.biography_and_about .content_text .button_add_to_server a:hover::before
+{
+    height: 100%;
+}

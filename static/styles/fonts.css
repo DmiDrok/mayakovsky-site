@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "RedOctoberDefault";
+    src: url("../fonts/RedOctober/RedOctoberDefault/RedOctober.eot"),
+        url("../fonts/RedOctober/RedOctoberDefault/RedOctober.ttf"),
+        url("../fonts/RedOctober/RedOctoberDefault/RedOctober.woff"),
+        url("../fonts/RedOctober/RedOctoberDefault/RedOctober.woff2");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "RedOctoberLight";
+    src: url("../fonts/RedOctober/RedOctoberLight/RedOctoberLight.eot"),
+        url("../fonts/RedOctober/RedOctoberLight/RedOctoberLight.ttf"),
+        url("../fonts/RedOctober/RedOctoberLight/RedOctoberLight.woff"),
+        url("../fonts/RedOctober/RedOctoberLight/RedOctoberLight.woff2");
+
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "RedOctoberFat";
+    src: url("../fonts//RedOctober/RedOctoberFat/RedOctober-Fat.eot"),
+        url("../fonts//RedOctober/RedOctoberFat/RedOctober-Fat.ttf"),
+        url("../fonts//RedOctober/RedOctoberFat/RedOctober-Fat.woff"),
+        url("..fonts/RedOctober/RedOctoberFat/RedOctober-Fat.woff2");
+
+    font-weight: bold;
+    font-style: normal;
+}

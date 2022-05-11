@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Бот - Главная</title>
+        {% endif %}
+
+        <!--Подключение стилей-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+        <!--Подключение JS-->
+        <script src="{{ url_for('static', filename='js/js.js') }}"></script>
+        <!--Иконка-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logo1.png') }}">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h1>Маяковский <sub>- Discord-Бот -</sub></h1>
+            </div>
+
+            <nav>
+                <a target="_blank" href="https://discord.com/api/oauth2/authorize?client_id=971851746433450064&permissions=8&scope=bot">
+                    Добавить
+                    <i class="line"></i>
+                </a>
+                <a href="">
+                    О боте
+                    <i class="line"></i>
+                </a>
+            </nav>
+        </header>
+        
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>
