@@ -26,13 +26,134 @@
                     Добавить
                     <i class="line"></i>
                 </a>
-                <a href="">
+                <a id="show_popup">
                     О боте
                     <i class="line"></i>
                 </a>
             </nav>
         </header>
         
+        <!--Попап (всплывающее окно)-->
+        <div id="popup">
+            <!--Контент попапа-->
+            <div id="popup_content">
+                <!--Кнопка закрытия попапа-->
+                <b id="close_popup">x</b>
+
+                <!--Весь остальной контент здесь (навигация и прочее)-->
+                <div id="navigation_popup">
+                    <a class="nav_link" id="pop_nav_1">О самом боте</a>
+                    <a class="nav_link" id="pop_nav_2">О командах</a>
+                    <a class="nav_link" id="pop_nav_3">О планах</a>
+                </div>
+
+                <!--Немного слайдер-->
+                <div class="content_text_here">
+                    <div id="popup_line">
+                        <div class="popup_block_content">
+                            <div class="text_popup">
+                                <h1>Для чего этот бот?</h1>
+
+                                <p>
+                                    Бот был сделан как и из личных симпатий к В. В. <strong>Маяковскому</strong>, так и из того факта, что ботов-поэтов в Discord'е попросту нет. 
+                                    В целом, бот относительно простой, в него собраны все (возможно это не так) произведения <strong>Маяковского</strong>, а также, команды для взаимодействия с участниками.
+                                </p>
+                                
+                                <p>
+                                    Надеемся, что самодельный Маяковский понравится вам и вашему серверу.
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="popup_block_content">
+                            <div class="text_popup">
+                                <h1>Какие команды есть у бота?</h1>
+
+                                <!--Команды бота-->
+                                <div class="commands_bot">
+                                    <div class="default_commands commands_block">
+                                        <ul>
+                                            <li class="default_command">
+                                                <h3>.composition стих</h3>
+                                                <p>Случайное стихотворение.</p>
+                                            </li>
+                                            <li class="default_command">
+                                                <h3>.composition поэма</h3>
+                                                <p>Случайная поэма.</p>
+                                            </li>
+                                            <li class="default_command">
+                                                <h3>.composition пьеса</h3>
+                                                <p>Случайная пьеса.</p>
+                                            </li>
+                                            <li class="default_command">
+                                                <h3>.info доп</h3>
+                                                <p>Справочник по дополнительным командам.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="dop_commands commands_block">
+                                        <ul>
+                                            <li class="dop_command">
+                                                <h3>.clear -n-</h3>
+                                                <p>Очистка чата на -n- сообщений.</p>
+                                            </li>
+                                            <li class="dop_command">
+                                                <h3>.kick</h3>
+                                                <p>Кик участника с сервера.</p>
+                                            </li>
+                                            <li class="dop_command">
+                                                <h3>.ban</h3>
+                                                <p>Бан участника на сервере.</p>
+                                            </li>
+                                            <li class="dop_command">
+                                                <h3>.unban</h3>
+                                                <p>Разбан участника на сервере.</p>
+                                            </li>
+                                            <li class="dop_command">
+                                                <h3>.roll -min- -max-</h3>
+                                                <p>Случайное число от -min- до -max-</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popup_block_content">
+                            <div class="text_popup">
+                                <h1>Планы по дальнейшему развитию.</h1>
+
+                                <p>В планах по развитию на первом месте стоит - добавка новых команд для взаимодействия с сервером, а также - улучшение содержания произведений или же добавления новых.</p>
+                                <p>Если у вас имеются предложения по развитию - скидывайте их на почту: test@gmail.com</p>
+                                
+                                <!--Кнопки для бота, почты-->
+                                <div class="any_buttons">
+                                    <!--Кнопка для добавления бота-->
+                                    <div class="btn_to_add">
+                                        <a href="https://discord.com/api/oauth2/authorize?client_id=971851746433450064&permissions=8&scope=bot" class="add_bot_btn">
+                                            Добавить бота
+                                        </a>
+
+                                        <!--Сидящий Маяковский (Вправо)-->
+                                        <div class="sitting_image_false sitting">
+                                            <img src="{{ url_for('static', filename='imgs/sitting_false.png') }}">
+                                        </div>
+
+                                        <!--Сидящий Маяковский (Влево)-->
+                                        <div class="sitting_image_true sitting">
+                                            <img src="{{ url_for('static', filename='imgs/sitting_true.png') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% block content %}
 
         {% endblock %}

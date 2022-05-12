@@ -9,17 +9,18 @@
 
 *::selection
 {
-    background-color: #b01010;
+    background-color: #6d0c0c;
     color: #ffffff;
 }
 
 body
 {
+    position: relative;
     background-color: #F8F8FA;
     overflow-x: hidden;
     font-family: "RedOctoberDefault";
     margin: 0 auto;
-    max-width: 1500px;
+    max-width: 1500px !important;
 }
 
 header
@@ -81,6 +82,7 @@ header nav a
     color: #000;
     transition-duration: .1s;
     white-space: nowrap;
+    cursor: pointer !important;
 }
 
 header nav a .line
@@ -289,6 +291,7 @@ header nav a:hover::before
 {
     display: grid;
     margin-top: 9rem;
+    padding: 1rem 0;
 }
 
 .biography_and_about
@@ -320,12 +323,6 @@ header nav a:hover::before
     top: -90px;
     transform: rotate(20deg);
 }
-
-/*.biography_and_about .content_text .content_image .img_here
-{
-    position: relative;
-    object-fit: cover;
-}*/
 
 .biography_and_about .content_text .content_image .img_here img
 {
@@ -412,6 +409,7 @@ header nav a:hover::before
 
 .biography_and_about .content_text .button_add_to_server a
 {
+    text-align: center;
     width: 100px;
     height: 50px;
     padding: 10px 20px;
@@ -438,6 +436,7 @@ header nav a:hover::before
     height: 0;
     background-color: #a41b1b;
     transition-duration: .2s;
+    border-radius: 2px;
     transition-timing-function: ease-in;
     z-index: -1;
 }
@@ -455,4 +454,296 @@ header nav a:hover::before
 .biography_and_about .content_text .button_add_to_server a:hover::before
 {
     height: 100%;
+}
+
+/*Описание попапа*/
+#popup
+{
+    display: grid;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -50%;
+    z-index: -1;
+    transition-duration: .6s;
+    transition-property: opacity;
+    opacity: 0;
+    background-color: rgba(100, 0, 0, 0.8);
+}
+
+#popup_content
+{
+    justify-self: center;
+    position: fixed;
+    top: -50%;
+    opacity: 0;
+    display: grid;
+    padding: 1.5rem;
+    color: #fff;
+    background-color: #a51c1c;
+    border-radius: 2px;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    top: -50%;
+    margin-top: -18%;
+    max-width: 1500px;
+    transition-duration: .6s;
+    transition-property: opacity top;
+    z-index: -1;
+    grid-template-rows: 50px auto;
+    grid-auto-flow: row;
+    grid-row-gap: 1rem;
+    min-height: 500px;
+    max-height: 850px;
+}
+
+#close_popup
+{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #fff;
+    cursor: pointer !important;
+    font-size: 23px;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+#close_popup:hover{color: #d8d8d8;}
+
+#navigation_popup
+{
+    display: inline;
+}
+
+#navigation_popup a
+{
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    cursor: pointer !important;
+}
+
+#navigation_popup a:not(:nth-child(1))
+{
+    margin-left: 1.7rem;
+}
+
+#navigation_popup a::before
+{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+    height: 3px;
+    display: block;
+    background-color: #fff;
+    transition-duration: .2s;
+    animation-name: anim-before-popup;
+}
+
+#navigation_popup a:hover
+{
+    color: #d8d8d8;
+}
+
+#navigation_popup a:hover::before
+{
+    background-color: #d8d8d8;
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+#navigation_popup a.active{color: #d8d8d8;}
+#navigation_popup a.active::before{background-color: #d8d8d8; left: 0; margin-left: 0; width: 100%;}
+
+/*Описание мини-слайдера внутри ПопАпа*/
+.content_text_here
+{
+    width: 1040px;
+    height: 100%;
+    overflow: hidden;
+    justify-self: center;
+}
+
+#popup_line
+{
+    position: relative;
+    left: 0;
+    display: flex;
+    width: 3120px;
+    height: 100%;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+}
+
+#popup_line .popup_block_content
+{
+    padding: 1rem;
+    width: 1040px;
+    height: 100%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#popup_line .popup_block_content .text_popup h1
+{
+    font-size: 33px;
+}
+
+#popup_line .popup_block_content .text_popup h1::first-letter
+{
+    font-size: 41px;
+}
+
+.text_popup
+{
+    display: grid;
+    grid-row-gap: 1rem;
+}
+
+.text_popup p
+{
+    line-height: 35px;
+    text-indent: 1.5rem;
+}
+.text_popup p::first-letter{font-size: 33px;}
+
+.text_popup .commands_bot
+{
+    font-family: "RedOctoberDefault";
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 1rem;
+}
+
+.commands_block
+{
+    position: relative;
+}
+
+.commands_block:first-child::before
+{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    height: 100%;
+    display: block;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.text_popup .commands_bot ul
+{
+    list-style: none;
+}
+
+.text_popup .commands_bot p
+{
+    font-size: 15px;
+}
+
+.text_popup .commands_bot p::first-letter
+{
+    font-size: 20px;
+}
+
+.text_popup .any_buttons
+{
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 3rem;
+    margin-top: 3rem;
+}
+
+.text_popup .btn_to_add
+{
+    position: relative;
+    width: 240px;
+    justify-self: end;
+}
+
+.text_popup .add_bot_btn{
+    text-align: center;
+    width: 220px;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    font-family: "RedOctoberDefault";
+    position: relative;
+    z-index: 100;
+    transition-duration: .2s;
+    transition-timing-function: ease-in;
+}
+
+.text_popup .add_bot_btn::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #540a0a;
+    transition-duration: .2s;
+    border-radius: 2px;
+    transition-timing-function: ease-in;
+    z-index: -1;
+}
+
+.text_popup .add_bot_btn:active
+{
+    box-shadow: 0px 0px 10px 5px #a51c1c;
+}
+
+.text_popup .add_bot_btn:hover
+{
+    color: #fff;
+}
+
+.text_popup .add_bot_btn:hover::before
+{
+    height: 100%;
+}
+
+.sitting
+{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+}
+
+.sitting img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sitting_image_false
+{
+    top: -85px;
+    right: -35px;
+}
+
+.sitting_image_true
+{
+    top: -85px;
+    left: -65px;
 }

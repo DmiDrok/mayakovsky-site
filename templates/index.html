@@ -319,4 +319,129 @@
     }
 </script>
 
+<!--Скрипт ПопАпа-->
+<script>
+    let Body = document.querySelector("body");
+
+    let btnToShow = document.getElementById("show_popup");
+    let popup = document.getElementById("popup");
+    let popupContent = document.getElementById("popup_content");
+    let closeX = document.getElementById("close_popup");
+    let active = false;
+
+    //Функция открытия попапа
+    function PopupOpen(){
+        
+        //Порядок стилей важен! Существующие местами менять не следует!
+        popup.style.opacity = "1";
+        popup.style.top = "0";
+        popup.style.zIndex = "1000";
+        popup.style.height = "100%";
+        popup_content.style.opacity = "1";
+        popup_content.style.top = "50%";
+        popup_content.style.zIndex = "10000";
+
+        Body.style.overflowY = "hidden";  
+        active = true;
+    }
+
+    //Функция закрытия попапа
+    function PopupClose(){
+
+        //Порядок стилей важен! Существующие местами менять не следует!
+        popup.style.opacity = "0";
+        popup.style.top = "-50%";
+        popup.style.height = "100%";
+        popup.style.zIndex = "-1";
+        popup_content.style.top = "-50%";
+        popup_content.style.opacity = "0";
+        
+
+        Body.style.overflowY = "scroll";
+        active = false;
+    }
+
+    //По клику в любую область, кроме popupContent или его дочерних элементов - закрываем попап.
+    document.onclick = function(event){
+        if (!popupContent.contains(event.target) && event.target.id != "show_popup" && active == true){
+            PopupClose();
+        }
+    }
+
+    //По клику на кнопку - отработает функция
+    btnToShow.onclick = function(){
+        if (active == false){
+            PopupOpen();
+        }
+        
+        else if (active == true){
+            PopupClose();
+        }
+    }
+
+    //По клику на крестик - отработает закрытие попапа
+    closeX.onclick = function(){
+        PopupClose();
+    }
+
+</script>
+
+<!--Скрипт мини-слайдера внутри ПопАпа-->
+<script>
+    //Объявление необходимых переменных
+    let firstNav = document.getElementById("pop_nav_1");
+    let secondNav = document.getElementById("pop_nav_2");
+    let thirthNav = document.getElementById("pop_nav_3");
+    let ArrNavs = [firstNav, secondNav, thirthNav];
+    let PopUpLine = document.getElementById("popup_line");
+    let BlockContent = document.querySelectorAll(".popup_block_content")[0];
+
+    //Смещение
+    let offsetLine = Number(0);
+
+    //На сколько смещать
+    let MoveLine = BlockContent.offsetWidth;
+    
+    //Функция чтобы сделать одну из кнопок активной
+    function ActiveOne(arr, saveNav){
+        for(let i=0; i<arr.length; i++){
+            if (arr[i] != saveNav){
+                arr[i].classList.remove("active");
+            }
+            saveNav.classList.add("active");
+        }
+    }
+
+    //По умолчанию добавляем для первого элемента в навигации класс .active
+    firstNav.classList.add("active");
+
+    //Действия при нажатии на первую кнопку
+    firstNav.onclick = function(){
+        offsetLine = 0;
+        PopUpLine.style.left = offsetLine + "px";
+
+        //Делаем первую кнопку активной
+        ActiveOne(ArrNavs, firstNav);
+    }
+
+    //Действия при нажатии на вторую кнопку
+    secondNav.onclick = function(){
+        offsetLine = -MoveLine;
+        PopUpLine.style.left = offsetLine + "px";
+
+        //Делаем вторую кнопку активной
+        ActiveOne(ArrNavs, secondNav);
+    }
+
+    //Действия при нажатии на третью кнопку
+    thirthNav.onclick = function(){
+        offsetLine = -MoveLine * 2;
+        PopUpLine.style.left = offsetLine + "px";
+
+        //Делаем третью кнопку активной
+        ActiveOne(ArrNavs, thirthNav);
+    }
+
+</script>
+
 {% endblock %}
