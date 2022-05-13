@@ -13,6 +13,11 @@
     color: #ffffff;
 }
 
+html
+{
+    min-height: 100vh;
+}
+
 body
 {
     position: relative;
@@ -20,7 +25,9 @@ body
     overflow-x: hidden;
     font-family: "RedOctoberDefault";
     margin: 0 auto;
-    max-width: 1500px !important;
+    max-width: 2000px !important;
+    min-width: 1300px;
+    min-height: 100vh;
 }
 
 header
@@ -358,10 +365,15 @@ header nav a:hover::before
     font-family: "RedOctoberDefault";
 }
 
-.biography_and_about .content_text p::first-letter
+.biography_and_about .content_text p:not(:first-child)
 {
-    font-size: 30px;
-    margin-right: .3rem;
+    margin-top: 1rem;
+}
+
+.biography_and_about .content_text p b
+{
+    font-size: 27px;
+    margin-right: .1rem;
 }
 
 .biography_and_about .content_text .button_add_to_server
@@ -446,6 +458,31 @@ header nav a:hover::before
     box-shadow: 0px 0px 10px 5px #a51c1c;
 }
 
+.century
+{
+    position: relative;
+}
+
+.century::before, .century::after
+{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    left: 0;
+}
+
+.century::before
+{
+    bottom: -3px;
+}
+
+.century::after
+{
+    top: -3px;
+}
+
 .biography_and_about .content_text .button_add_to_server a:hover
 {
     color: #fff;
@@ -483,7 +520,7 @@ header nav a:hover::before
     background-color: #a51c1c;
     border-radius: 2px;
     height: 80%;
-    width: 80%;
+    /*width: 80%;*/
     margin: auto;
     top: -50%;
     margin-top: -18%;
@@ -617,6 +654,8 @@ header nav a:hover::before
 }
 .text_popup p::first-letter{font-size: 33px;}
 
+.text_popup b{font-size: 28px;}
+
 .text_popup .commands_bot
 {
     font-family: "RedOctoberDefault";
@@ -624,6 +663,48 @@ header nav a:hover::before
     grid-auto-flow: column;
     grid-template-columns: repeat(2, 50%);
     grid-column-gap: 1rem;
+}
+
+#mail_link
+{
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+
+#mail_link::before
+{
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    background-color: #fff;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+
+#mail_link:hover
+{
+    color: #d8d8d8;
+}
+
+#mail_link:hover::before
+{
+    background-color: #d8d8d8;
+}
+
+#mail_link:active
+{
+    color: #000;
+}
+
+#mail_link:active::before
+{
+    background-color: #000;
 }
 
 .commands_block
@@ -746,4 +827,69 @@ header nav a:hover::before
 {
     top: -85px;
     left: -65px;
+}
+
+@media(max-width: 1000px)
+{
+    /*Описание лого*/
+    .logo h1
+    {
+        text-align: center;
+    }
+
+    header nav a
+    {
+        font-size: 30px;
+    }
+
+    /*Описание попапа*/
+    #popup_content
+    {
+        width: 100%;
+    }
+
+    /*Описание блока с биографией*/
+    .biography_and_about
+    {
+        width: 95%;
+    }
+
+    .biography_and_about .content_text h2 em
+    {
+        margin-left: 0;
+    }
+    
+    .biography_and_about .content_text h2
+    {
+        padding-bottom: 2rem;
+        border-bottom: 6px solid #fff;
+        text-align: center;
+    }
+
+    .biography_and_about .content_text .paragraphs_here
+    {
+        margin-top: 2rem;
+    }
+
+    .biography_and_about .content_text .button_add_to_server .standing
+    {
+        top: -70px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .biography_and_about .content_text .button_add_to_server .standing_image_false
+    {
+        left: -70px;
+    }
+
+    .biography_and_about .content_text .button_add_to_server .standing_image_true
+    {
+        right: -70px;
+    }
+
+    .biography_and_about .content_text .button_add_to_server
+    {
+        margin-top: 4rem;
+    }
 }
