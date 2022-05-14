@@ -308,6 +308,7 @@ header nav a:hover::before
     /*grid-template-columns: repeat(2, 50%);*/
     width: 80%;
     margin: 0 auto;
+    max-height: 700px;
 }
 
 .biography_and_about .content_text
@@ -401,13 +402,13 @@ header nav a:hover::before
 .biography_and_about .content_text .button_add_to_server .standing_image_false
 {
     left: -46px;
-    bottom: -32px;
+    bottom: -15px;
 }
 
 .biography_and_about .content_text .button_add_to_server .standing_image_true
 {
     right: -46px;
-    bottom: -32px;
+    bottom: -15px;
 }
 
 .biography_and_about .content_text .button_add_to_server button
@@ -422,8 +423,9 @@ header nav a:hover::before
 .biography_and_about .content_text .button_add_to_server a
 {
     text-align: center;
-    width: 100px;
-    height: 50px;
+    width: 175px;
+    height: 45px;
+    font-size: 20px;
     padding: 10px 20px;
     background: #fff;
     border-radius: 2px;
@@ -436,6 +438,8 @@ header nav a:hover::before
     z-index: 100;
     transition-duration: .2s;
     transition-timing-function: ease-in;
+    display: block;
+    
 }
 
 .biography_and_about .content_text .button_add_to_server a::before
@@ -446,6 +450,7 @@ header nav a:hover::before
     bottom: 0;
     width: 100%;
     height: 0;
+    display: block;
     background-color: #a41b1b;
     transition-duration: .2s;
     border-radius: 2px;
@@ -519,11 +524,11 @@ header nav a:hover::before
     color: #fff;
     background-color: #a51c1c;
     border-radius: 2px;
-    height: 80%;
+    height: 90%;
     /*width: 80%;*/
     margin: auto;
     top: -50%;
-    margin-top: -18%;
+    margin-top: -20%;
     max-width: 1500px;
     transition-duration: .6s;
     transition-property: opacity top;
@@ -665,8 +670,10 @@ header nav a:hover::before
     grid-column-gap: 1rem;
 }
 
+
 #mail_link
 {
+    display: inline-block;
     position: relative;
     color: #fff;
     text-decoration: none;
@@ -745,7 +752,7 @@ header nav a:hover::before
     display: grid;
     grid-auto-flow: column;
     grid-column-gap: 3rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .text_popup .btn_to_add
@@ -753,11 +760,12 @@ header nav a:hover::before
     position: relative;
     width: 240px;
     justify-self: end;
+    margin-right: 4rem;
 }
 
 .text_popup .add_bot_btn{
     text-align: center;
-    width: 220px;
+    width: 280px;
     padding: 15px 20px;
     background: #fff;
     border-radius: 2px;
@@ -770,6 +778,8 @@ header nav a:hover::before
     z-index: 100;
     transition-duration: .2s;
     transition-timing-function: ease-in;
+    display: block;
+    font-size: 20px;
 }
 
 .text_popup .add_bot_btn::before
@@ -819,13 +829,13 @@ header nav a:hover::before
 
 .sitting_image_false
 {
-    top: -85px;
-    right: -35px;
+    top: -68px;
+    right: -106px;
 }
 
 .sitting_image_true
 {
-    top: -85px;
+    top: -68px;
     left: -65px;
 }
 
@@ -849,10 +859,10 @@ header nav a:hover::before
     }
 
     /*Описание блока с биографией*/
-    .biography_and_about
+    /*.biography_and_about
     {
         width: 95%;
-    }
+    }*/
 
     .biography_and_about .content_text h2 em
     {
@@ -881,11 +891,13 @@ header nav a:hover::before
     .biography_and_about .content_text .button_add_to_server .standing_image_false
     {
         left: -70px;
+        top: -62px;
     }
 
     .biography_and_about .content_text .button_add_to_server .standing_image_true
     {
         right: -70px;
+        top: -62px;
     }
 
     .biography_and_about .content_text .button_add_to_server

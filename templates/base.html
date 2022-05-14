@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
     <head>
 
         {% if title %}
@@ -14,6 +14,9 @@
         <script src="{{ url_for('static', filename='js/js.js') }}"></script>
         <!--Иконка-->
         <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logo1.png') }}">
+        <!--Мета-теги-->
+        
+        <meta charset="UTF-8">
     </head>
     <body>
         <header>
@@ -129,7 +132,9 @@
                                 <p>В планах по развитию на первом месте стоит - добавка новых команд для взаимодействия с сервером, а также - улучшение содержания произведений или же добавления новых.</p>
                                 <p>
                                     Если у вас имеются предложения по развитию - скидывайте их на почту: 
-                                    <a target="_blank" href="mailto:{{ to_html['mail'] }}" id="mail_link">{{ to_html["mail"] }}</a>
+                                    <div class="mail_link_container">
+                                        <a target="_blank" href="mailto:{{ to_html['mail'] }}" id="mail_link">{{ to_html["mail"] }}</a>
+                                    </div>
                                 </p>
                                 
                                 <!--Кнопки для бота, почты-->
